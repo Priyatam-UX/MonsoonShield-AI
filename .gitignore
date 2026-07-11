@@ -1,0 +1,27 @@
+# Dependency directories
+node_modules/
+
+# Compilation / Build outputs
+dist/
+build/
+.temp/
+
+# Environment / API Keys
+.env
+.env.local
+.env.*.local
+.env.production
+.env.development
+
+# Editor settings
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+
+# OS Files
+.DS_Store
+Thumbs.db

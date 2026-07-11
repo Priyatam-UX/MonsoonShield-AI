@@ -1,6 +1,6 @@
 # MonsoonShield AI ⛈️🛡️
 
-**Live Deployment Link**: 🌐 [monsoon-shield-ai-priyatam-ux.vercel.app](https://monsoon-shield-ai-priyatam-ux.vercel.app/)
+**Live Deployment Link**: 🌐 [monsoon-shield-ai.vercel.app](https://monsoon-shield-ai.vercel.app/)
 
 MonsoonShield AI is an AI-powered Monsoon Preparedness & Citizen Assistance platform built for the **Google Build with AI / PromptWars hackathon**. It helps individuals, families, and communities stay safe before, during, and after severe monsoon storms through Gemini-driven planning, risk evaluations, and safety overlays.
 

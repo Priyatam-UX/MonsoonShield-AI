@@ -1,8 +1,28 @@
 # MonsoonShield AI ⛈️🛡️
 
+**Live Deployment Link**: 🌐 [monsoon-shield-ai-priyatam-ux.vercel.app](https://monsoon-shield-ai-priyatam-ux.vercel.app/)
+
 MonsoonShield AI is an AI-powered Monsoon Preparedness & Citizen Assistance platform built for the **Google Build with AI / PromptWars hackathon**. It helps individuals, families, and communities stay safe before, during, and after severe monsoon storms through Gemini-driven planning, risk evaluations, and safety overlays.
 
 Designed with a premium **Google Material 3 inspired UI**, the application features rich dark/light theme switching, responsive layouts, voice command speech synthesis, offline PWA access, and interactive map grids.
+
+---
+
+## 🛠️ Deployed Version Updates & Technical Challenges
+
+### 1. Monorepo Subdirectory Mappings (404 Page Not Found)
+* **Challenge**: Deploying a project with separate `client/` and `server/` subfolders on Vercel and Netlify initially caused `Page Not Found` errors because the hosting platforms built the repository root directory by default (where no index file was located).
+* **Update**: Configured build settings explicitly to designate `client` as the **Root/Package Directory**, with the build command set to `npm run build` and output folder routed to `client/dist`.
+
+### 2. Tailwind CSS v4 Compiler Integration
+* **Challenge**: The latest Tailwind CSS v4 engine uses a compiler that restricts legacy `@apply` directives from mixing opacity modifiers (`bg-white/70`, `bg-secondary-light/35`) and custom classes, resulting in PostCSS build failures.
+* **Update**: Installed `@tailwindcss/postcss` and changed CSS file structures to utilize Tailwind v4's `@import "tailwindcss";` directive alongside standard CSS custom variables for opacities and borders.
+
+### 3. API Precedence & Prompt Parsing Collision
+* **Challenge**: The AI Preparedness Planner returned a blank screen during mock testing. This was traced to the server-side router, where the prompt for the planner contained keywords that matched the generic `riskscore` metric check first. The server returned a generic score payload, leaving checklist arrays undefined and causing a client-side component crash.
+* **Update**: Re-ordered conditional logic in `server/src/index.ts` to parse the planner's checklist indicators first, ensuring structured payloads are fully resolved.
+
+---
 
 ## 🚀 Key Features
 

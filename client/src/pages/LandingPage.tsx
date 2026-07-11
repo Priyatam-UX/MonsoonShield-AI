@@ -70,6 +70,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onEnterApp, loginWithG
             <button
               onClick={loginWithGoogle}
               className="px-5 py-2 rounded-full bg-white dark:bg-surface-dark border border-secondary/20 dark:border-white/10 text-secondary dark:text-white hover:bg-secondary/5 transition-all text-sm font-semibold shadow-m3-1"
+              aria-label="Sign in with your Google Account"
             >
               Sign In with Google
             </button>
@@ -109,6 +110,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onEnterApp, loginWithG
             <button
               onClick={onEnterApp}
               className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-primary text-white hover:bg-primary-light transition-all flex items-center justify-center space-x-2 font-semibold text-base shadow-m3-2 hover:scale-[1.02]"
+              aria-label="Protect your family now by accessing the safety planner"
             >
               <span>Protect Your Family Now</span>
               <ArrowRight className="h-5 w-5" />
@@ -116,6 +118,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onEnterApp, loginWithG
             <button
               onClick={loginWithGoogle}
               className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-white dark:bg-surface-dark border border-secondary/20 dark:border-white/10 text-secondary dark:text-white hover:bg-secondary/5 transition-all font-semibold text-base shadow-m3-1"
+              aria-label="Join the community preparedness network"
             >
               Join the Network
             </button>

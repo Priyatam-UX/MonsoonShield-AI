@@ -102,7 +102,7 @@ export const FloatingChat: React.FC = () => {
           </div>
 
           {/* Messages list */}
-          <div className="flex-1 overflow-y-auto p-4 space-y-3 bg-secondary/5 dark:bg-background-dark/30">
+          <div className="flex-1 overflow-y-auto p-4 space-y-3 bg-secondary/5 dark:bg-background-dark/30" role="log" aria-live="polite">
             {messages.map((m, idx) => (
               <div
                 key={idx}

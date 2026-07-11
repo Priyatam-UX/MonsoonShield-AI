@@ -11,6 +11,41 @@ const PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json({ limit: '10mb' }));
 
+// Security headers middleware
+app.use((req, res, next) => {
+  res.setHeader('X-Frame-Options', 'DENY');
+  res.setHeader('X-Content-Type-Options', 'nosniff');
+  res.setHeader('Content-Security-Policy', "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://images.unsplash.com; connect-src 'self' http://localhost:5000 http://localhost:5173;");
+  next();
+});
+
+// In-memory rate limiting implementation
+const rateLimitMap = new Map<string, { count: number; resetTime: number }>();
+const RATE_LIMIT_WINDOW = 60 * 1000; // 1 minute
+const MAX_REQUESTS = 25; // 25 requests per minute
+
+const rateLimiter = (req: express.Request, res: express.Response, next: express.NextFunction) => {
+  const ip = (req.headers['x-forwarded-for'] as string) || req.socket.remoteAddress || 'unknown';
+  const now = Date.now();
+  
+  const record = rateLimitMap.get(ip);
+  if (!record) {
+    rateLimitMap.set(ip, { count: 1, resetTime: now + RATE_LIMIT_WINDOW });
+    return next();
+  }
+
+  if (now > record.resetTime) {
+    rateLimitMap.set(ip, { count: 1, resetTime: now + RATE_LIMIT_WINDOW });
+    return next();
+  }
+
+  record.count++;
+  if (record.count > MAX_REQUESTS) {
+    return res.status(429).json({ error: 'Too many requests. Please try again after a minute.' });
+  }
+  next();
+};
+
 const geminiKey = process.env.GEMINI_API_KEY;
 let genAI: GoogleGenerativeAI | null = null;
 
@@ -40,7 +75,7 @@ app.get('/api/weather', async (req, res) => {
 });
 
 // 2. Chat / Prompt processing API
-app.post('/api/ai/chat', async (req, res) => {
+app.post('/api/ai/chat', rateLimiter, async (req, res) => {
   const { message, prompt, history } = req.body;
 
   try {
@@ -133,7 +168,7 @@ app.post('/api/ai/chat', async (req, res) => {
 });
 
 // 3. Vision API proxy
-app.post('/api/ai/vision', async (req, res) => {
+app.post('/api/ai/vision', rateLimiter, async (req, res) => {
   const { image } = req.body; // base64 string
 
   try {

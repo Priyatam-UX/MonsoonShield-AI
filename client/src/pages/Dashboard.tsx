@@ -102,7 +102,7 @@ export const Dashboard: React.FC<DashboardProps> = ({ onNavigate }) => {
           {/* Sparkline chart of rainfall probability */}
           <div className="h-28 w-full my-4">
             <ResponsiveContainer width="100%" height="100%">
-              <AreaChart data={mockChartData} margin={{ top: 5, right: 5, left: -25, bottom: 0 }}>
+              <AreaChart accessibilityLayer data={mockChartData} margin={{ top: 5, right: 5, left: -25, bottom: 0 }}>
                 <defs>
                   <linearGradient id="colorRain" x1="0" y1="0" x2="0" y2="1">
                     <stop offset="5%" stopColor="hsl(175, 80%, 30%)" stopOpacity={0.4}/>
@@ -147,7 +147,9 @@ export const Dashboard: React.FC<DashboardProps> = ({ onNavigate }) => {
 
           {/* Circular progress meter */}
           <div className="relative flex items-center justify-center my-4">
-            <svg className="w-36 h-36 transform -rotate-90">
+            <svg className="w-36 h-36 transform -rotate-90" role="img" aria-label={`AI Risk Score circular meter showing ${riskData?.riskScore || 0} out of 100`}>
+              <title>AI Risk Meter</title>
+              <desc>{`Risk Score: ${riskData?.riskScore || 0} - ${riskData?.riskExplanation || ''}`}</desc>
               <circle cx="72" cy="72" r="62" stroke="currentColor" strokeWidth="8" className="text-secondary/10 dark:text-white/5" fill="transparent" />
               <circle
                 cx="72"

@@ -84,13 +84,15 @@ export default function App() {
     <div className={`min-h-screen bg-background-light dark:bg-background-dark text-secondary dark:text-secondary-dark flex flex-col font-sans transition-colors duration-300`}>
       
       {/* Top Navbar */}
-      <header className="sticky top-0 z-30 w-full bg-white/80 dark:bg-surface-dark/80 backdrop-blur-md border-b border-secondary/15 dark:border-white/5 px-4 py-3 flex items-center justify-between">
+      <header className="sticky top-0 z-30 w-full bg-white/80 dark:bg-surface-dark/80 backdrop-blur-md border-b border-secondary/15 dark:border-white/5 px-4 py-3 flex items-center justify-between" role="banner">
         
         {/* Logo and Menu Trigger */}
         <div className="flex items-center space-x-3">
           <button
             onClick={() => setSidebarOpen(!sidebarOpen)}
             className="p-1.5 rounded-full hover:bg-secondary/10 dark:hover:bg-white/10 text-secondary dark:text-white lg:hidden"
+            aria-label="Toggle navigation menu"
+            aria-expanded={sidebarOpen}
           >
             <Menu className="h-5 w-5" />
           </button>
@@ -152,6 +154,8 @@ export default function App() {
         
         {/* Sidebar Nav (Desktop static, mobile responsive overlay) */}
         <aside
+          role="navigation"
+          aria-label="Main sidebar navigation"
           className={`fixed inset-y-0 left-0 transform ${
             sidebarOpen ? 'translate-x-0' : '-translate-x-full'
           } lg:relative lg:translate-x-0 transition-transform duration-300 ease-in-out z-40 w-64 bg-white dark:bg-surface-dark border-r border-secondary/15 dark:border-white/5 flex flex-col justify-between flex-shrink-0 pt-16 lg:pt-0 h-full`}
@@ -186,7 +190,7 @@ export default function App() {
         )}
 
         {/* Content Section */}
-        <main className="flex-1 overflow-y-auto p-4 md:p-6 bg-secondary/5 dark:bg-background-dark/35 z-10">
+        <main role="main" className="flex-1 overflow-y-auto p-4 md:p-6 bg-secondary/5 dark:bg-background-dark/35 z-10">
           {renderActivePage()}
         </main>
       </div>

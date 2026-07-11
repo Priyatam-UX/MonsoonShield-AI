@@ -22,7 +22,7 @@ interface ProfileFormValues {
 
 export const UserProfile: React.FC = () => {
   const { profile, updateProfile } = useApp();
-  const { register, handleSubmit, formState: { errors } } = useForm<ProfileFormValues>({
+  const { register, handleSubmit } = useForm<ProfileFormValues>({
     defaultValues: profile
   });
 
@@ -51,16 +51,18 @@ export const UserProfile: React.FC = () => {
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div>
-              <label className="block text-xs font-semibold text-secondary-light dark:text-secondary-dark mb-1">Full Name</label>
+              <label htmlFor="profile-name" className="block text-xs font-semibold text-secondary-light dark:text-secondary-dark mb-1">Full Name</label>
               <input
+                id="profile-name"
                 type="text"
                 {...register('name', { required: true })}
                 className="w-full bg-secondary/5 dark:bg-background-dark/30 border border-secondary/15 dark:border-white/10 rounded-xl px-3 py-2 text-sm text-secondary dark:text-white focus:outline-none focus:ring-1 focus:ring-primary"
               />
             </div>
             <div>
-              <label className="block text-xs font-semibold text-secondary-light dark:text-secondary-dark mb-1">Age</label>
+              <label htmlFor="profile-age" className="block text-xs font-semibold text-secondary-light dark:text-secondary-dark mb-1">Age</label>
               <input
+                id="profile-age"
                 type="number"
                 {...register('age', { required: true, min: 1, max: 120 })}
                 className="w-full bg-secondary/5 dark:bg-background-dark/30 border border-secondary/15 dark:border-white/10 rounded-xl px-3 py-2 text-sm text-secondary dark:text-white focus:outline-none focus:ring-1 focus:ring-primary"

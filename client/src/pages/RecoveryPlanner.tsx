@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ShieldCheck, Compass, Sparkles, AlertCircle, RefreshCw, Square, CheckSquare, Layers } from 'lucide-react';
+import { ShieldCheck, Sparkles, AlertCircle, RefreshCw, Square, CheckSquare, Layers } from 'lucide-react';
 import { apiService } from '../services/api';
 
 interface RecoveryPlan {

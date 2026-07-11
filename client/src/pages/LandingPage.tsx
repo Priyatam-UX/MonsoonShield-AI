@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Shield, CloudRain, ShieldCheck, MapPin, Radio, MessageCircle, AlertTriangle, ArrowRight } from 'lucide-react';
+import { Shield, CloudRain, ShieldCheck, MapPin, Radio, ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 interface LandingPageProps {

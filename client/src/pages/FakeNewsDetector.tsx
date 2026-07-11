@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ShieldAlert, Compass, Sparkles, MessageSquare, AlertCircle, RefreshCw, AlertTriangle, CheckSquare } from 'lucide-react';
+import { ShieldAlert, MessageSquare, RefreshCw, AlertTriangle } from 'lucide-react';
 import { apiService } from '../services/api';
 
 interface FactCheckResult {

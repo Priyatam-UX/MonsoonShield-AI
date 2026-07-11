@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { MapPin, ShieldAlert, Sparkles, MessageCircle, Eye, Check, Image, AlertCircle, Send } from 'lucide-react';
+import { MapPin, ShieldAlert, Check, AlertCircle, Send } from 'lucide-react';
 import { apiService } from '../services/api';
 import { CommunityReport, ReportCategory } from '../types';
 import { useGeolocation } from '../hooks/useGeolocation';
@@ -12,7 +12,7 @@ export const CommunityReports: React.FC = () => {
   const [photoUrl, setPhotoUrl] = useState('');
   const [selectedReport, setSelectedReport] = useState<CommunityReport | null>(null);
   const [loading, setLoading] = useState(false);
-  const [dupChecking, setDupChecking] = useState(false);
+
   const [dupResult, setDupResult] = useState<{ isDuplicate: boolean; reason?: string } | null>(null);
 
   const loadReports = async () => {
@@ -28,7 +28,7 @@ export const CommunityReports: React.FC = () => {
     e.preventDefault();
     if (!description.trim()) return;
     setLoading(true);
-    setDupChecking(true);
+    setLoading(true);
 
     const lat = geo.latitude || 17.4475;
     const lon = geo.longitude || 78.3730;
@@ -60,7 +60,7 @@ export const CommunityReports: React.FC = () => {
 
       setDescription('');
       setPhotoUrl('');
-      setDupChecking(false);
+
       setLoading(false);
       loadReports();
     }, 1500);

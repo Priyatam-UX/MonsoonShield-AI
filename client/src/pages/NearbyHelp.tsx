@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { HelpCircle, MapPin, Phone, Hospital, Shield, BatteryCharging, Flame, Compass, RefreshCw, Layers } from 'lucide-react';
+import { HelpCircle, MapPin, Phone, Hospital, Shield, BatteryCharging, RefreshCw, Layers } from 'lucide-react';
 import { apiService } from '../services/api';
 import { HelpCenter } from '../types';
 import { useGeolocation } from '../hooks/useGeolocation';

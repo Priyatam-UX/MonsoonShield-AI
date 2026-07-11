@@ -1,4 +1,3 @@
-import { Language } from '../context/AppContext';
 
 export interface WeatherInfo {
   temp: number;

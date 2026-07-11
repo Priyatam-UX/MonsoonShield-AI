@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { CloudRain, Compass, ShieldAlert, AlertCircle, RefreshCw, Zap, Navigation, Users, MapPin, FileCheck, HelpCircle } from 'lucide-react';
+import { CloudRain, Compass, ShieldAlert, AlertCircle, RefreshCw, Zap, Navigation, Users, MapPin, FileCheck } from 'lucide-react';
 import { useApp } from '../context/AppContext';
 import { apiService } from '../services/api';
 import { WeatherInfo } from '../types';

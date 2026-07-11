@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { useApp, Language } from './context/AppContext';
+import { useState } from 'react';
+import { useApp } from './context/AppContext';
 import { FloatingChat } from './components/FloatingChat';
 
 // Page Imports
@@ -19,8 +19,8 @@ import { FakeNewsDetector } from './pages/FakeNewsDetector';
 
 // Icon imports
 import {
-  Shield, Menu, X, Sun, Moon, Globe, WifiOff, LayoutDashboard, User, FileCheck,
-  Navigation, Camera, MapPin, AlertCircle, Users, HelpCircle, MessageSquare, ShieldCheck, HelpCircle as HelpIcon
+  Shield, Menu, Sun, Moon, Globe, WifiOff, LayoutDashboard, User, FileCheck,
+  Navigation, Camera, MapPin, AlertCircle, Users, HelpCircle, MessageSquare, ShieldCheck
 } from 'lucide-react';
 
 export default function App() {

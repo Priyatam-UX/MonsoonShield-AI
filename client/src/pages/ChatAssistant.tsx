@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { MessageSquare, Send, Mic, MicOff, Volume2, VolumeX, Sparkles, RefreshCw } from 'lucide-react';
+import { MessageSquare, Send, Mic, MicOff, Volume2, VolumeX } from 'lucide-react';
 import { useApp } from '../context/AppContext';
 import { useSpeech } from '../hooks/useSpeech';
 import { apiService } from '../services/api';

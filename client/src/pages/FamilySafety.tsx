@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { Users, ShieldCheck, MapPin, Phone, HelpCircle, UserCheck, HeartHandshake } from 'lucide-react';
+import { Users, MapPin, Phone, HeartHandshake } from 'lucide-react';
 import { FamilyMember, FamilyStatus } from '../types';
 
 export const FamilySafety: React.FC = () => {
-  const [members, setMembers] = useState<FamilyMember[]>([
+  const [members] = useState<FamilyMember[]>([
     {
       id: 'fam-1',
       name: 'Rohan Kumar (Brother)',

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { AlertCircle, Phone, MapPin, Share2, Shield, Heart, HelpCircle, Send, Check } from 'lucide-react';
+import { AlertCircle, Phone, Share2, Shield, Heart, Send, Check } from 'lucide-react';
 import { useApp } from '../context/AppContext';
 import { useGeolocation } from '../hooks/useGeolocation';
 
